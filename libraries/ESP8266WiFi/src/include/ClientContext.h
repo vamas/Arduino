@@ -82,6 +82,7 @@ public:
             tcp_err(_pcb, NULL);
             tcp_poll(_pcb, NULL, 0);
             err = tcp_close(_pcb);
+            tcp_abort(_pcb); //Custom modification
             if(err != ERR_OK) {
                 DEBUGV(":tc err %d\r\n", (int) err);
                 tcp_abort(_pcb);
